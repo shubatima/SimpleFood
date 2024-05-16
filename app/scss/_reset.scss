@@ -65,3 +65,17 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+button {
+  display: inline-block;
+  appearance: none;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  font: inherit;
+}
+
+address {
+  font-style: normal
+}

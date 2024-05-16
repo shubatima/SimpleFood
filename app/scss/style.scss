@@ -1,8 +1,65 @@
-@import 'vars';
-@import 'fonts';
-@import 'reset';
 @import 'global';
+@import 'reset';
+@import 'fonts';
+@import 'vars';
+
+.header {
+  padding: 60px 0;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.menu {
+
+  &__list {
+    display: flex;
+  }
+
+  .menu__list-item:not(:last-child) {
+    margin-right: 40px;
+  }
+
+  &__list-link {
+    color: $default;
+    &:hover {
+      color: $accent;
+    }
+  }
+
+  &__list-link--active {
+    color: $accent;
+  }
+}
+
+.user-nav {
+  display: flex;
+
+  &__link {
+    position: relative;
+  }
+
+  &__link + .user-nav__link {
+    padding-left: 35px;
+  }
+
+  &__num {
+    background-color: $accent;
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    top: -6px;
+    right: -6px;
+    font-size: 10px;
+    color: #fff;
+  }
+}
 
 
 @import 'media';
 
+// 1.30.20 sek шрифты

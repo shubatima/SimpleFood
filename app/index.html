@@ -1,13 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Магазин їжі SimpleFood</title>
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
-
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header__inner">
+        <a class="logo" href="#">
+          <img class="logo__img" src="images/logo.png" alt="logo">
+        </a>
+        <nav class="menu">
+          <ul class="menu__list">
+            <li class="menu__list-item">
+              <a class="menu__list-link menu__list-link--active" href="#">Головна</a>
+            </li>
+            <li class="menu__list-item">
+              <a class="menu__list-link" href="#">Страви</a>
+            </li>
+            <li class="menu__list-item">
+              <a class="menu__list-link" href="#">Контакти</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="user-nav">
+          <a class="user-nav__link" href="#">
+            <img class="user-nav__link-img" src="images/Search-icon.svg" alt="Пошук">
+          </a>
+          <a class="user-nav__link" href="#">
+            <img class="user-nav__link-img" src="images/Cart-icon.svg" alt="Пошук">
+            <span class="user-nav__num">4</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
   
   <script src="js/main.min.js"></script>
 </body>

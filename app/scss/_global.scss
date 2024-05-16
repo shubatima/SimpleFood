@@ -1,2 +1,12 @@
+body {
+  font-family: "Rubik", sans-serif;
+  color: #fff;
+  font-size: 20px;
+  @extend %rubik-400;
+}
 
-
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
