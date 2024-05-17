@@ -25,6 +25,7 @@
 
   &__list-link {
     color: $default;
+    font-size: 18px;
     &:hover {
       color: $accent;
     }
@@ -59,7 +60,83 @@
   }
 }
 
+.footer-top {
+  display: flex;
+  padding: 120px 0 61px;
+
+  &__subscribe {
+    width: 200px;
+  }
+
+  &__logo {
+    margin-bottom: 20px;
+  }
+
+  &__form-label {
+    font-size: 14px;
+  }
+
+  &__form-input {
+    border: 1px solid #c2c2c2;
+    border-radius: 5px;
+    padding-left: 13px;
+    max-width: 200px;
+    height: 44px;
+    margin-bottom: 12px;
+  }
+
+  &__form-btn {
+    background-color: $accent;
+    width: 200px;
+    color: $secondbg;
+    border-radius: 5px;
+  }
+
+  &__subscribe {
+    width: 200px;
+    margin-right: 70px;
+  }
+
+  &__nav-1 {
+    width: 121px;
+    height: 152px;
+    margin-right: 90px;
+  }
+
+  &__nav-2 {  
+    width: 87px;
+    margin-right: 108px;
+  }
+
+  &__nav-3 {
+    width: 105px;
+    margin-right: 142px;
+  }
+
+  &__link:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  &__socialmedia {
+    display: flex;
+  }
+
+  &__socialmedia:not(:last-child) {
+    margin-right: 36px;
+  }
+}
+
+.footer-end {
+  text-align: center;
+  padding: 30px 0;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+  background-color: #363853;
+  }
+
+
+
 
 @import 'media';
-
-// 1.30.20 sek шрифты
