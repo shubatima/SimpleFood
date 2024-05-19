@@ -1,15 +1,13 @@
-@import 'global';
 @import 'reset';
 @import 'fonts';
 @import 'vars';
+@import 'global';
 
 .header {
   padding: 60px 0;
 
-  &__inner {
+  &__menu {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
 }
 
