@@ -30,3 +30,13 @@ body {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section {
+  padding: 60px 0;
+}

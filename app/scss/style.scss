@@ -6,18 +6,60 @@
 @import 'global';
 
 .header {
-  display: flex;
   padding: 60px 0;
-  
+
+  &__inner {
+    @extend.header
+  }
 }
+
+.menu {
+
+  &__list {
+    display: flex;
+  }
+
+  &__list-item:not(:last-child) {
+    margin-right: 40px;
+  }
+
+  &_list-link {
+    color: $default;
+    font-size: 18px;
+    
+    &:hover {
+      color: $accent;
+    }
+
+    &--active {
+    color: $accent;
+    }
+  }
+}
+
+  .user-nav {
+    display: flex;
+
+    &__link {
+      position: relative;
+    }
+
+    &__ + .user-nav__link {
+      margin-left: 35px;
+    }
+
+    &__num {
+      background-color: $accent;
+      position: absolute;
+      border-radius: 50%;
+      font-size: 10px;
+      color: $secondbg;
+    }
+  }
 
 .footer-top {
   display: flex;
-  padding: 120px 0 61px;
-
-  &__subscribe {
-    width: 200px;
-  }
+  padding-bottom: 60px;
 
   &__logo {
     margin-bottom: 20px;
@@ -28,40 +70,17 @@
   }
 
   &__form-input {
-    border: 1px solid #c2c2c2;
+    border: 1px solid $br-input;
     border-radius: 5px;
     padding-left: 13px;
-    max-width: 200px;
-    height: 44px;
+    max-width: 100%;
     margin-bottom: 12px;
   }
 
   &__form-btn {
     background-color: $accent;
-    width: 200px;
-    color: $secondbg;
+    width: 100%;
     border-radius: 5px;
-  }
-
-  &__subscribe {
-    width: 200px;
-    margin-right: 70px;
-  }
-
-  &__nav-1 {
-    width: 121px;
-    height: 152px;
-    margin-right: 90px;
-  }
-
-  &__nav-2 {  
-    width: 87px;
-    margin-right: 108px;
-  }
-
-  &__nav-3 {
-    width: 105px;
-    margin-right: 142px;
   }
 
   &__link:not(:last-child) {
@@ -70,10 +89,41 @@
 
   &__socialmedia {
     display: flex;
+
+     &:not(:last-child) {
+      margin-right: 36px;
+    }
+  }
+}
+
+.form {
+  width: 200px;
+
+  &-input {
+    width: 100%;
   }
 
-  &__socialmedia:not(:last-child) {
-    margin-right: 36px;
+  &-btn {
+    width: 100%;
+  }
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  
+  &__link {
+    margin-bottom: 20px;
+    width: 100%;
+
+    &:nth-child(4n+1) {
+      margin-right: 90px;
+    }
+    
+    &:nth-child(4n+2){
+      margin-right: 100px;
+    }
   }
 }
 
@@ -86,8 +136,5 @@
   line-height: 1;
   background-color: #363853;
   }
-
-
-
 
 @import 'media';

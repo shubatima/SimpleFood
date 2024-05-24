@@ -20,57 +20,62 @@
 <body>
   <header class="header" id="header">
     <div class="container">
-      <nav class="menu">
-        <a class="header__logo" href="#">
-          <img src="images/logo.svg" href="#" width="200" height="39" alt="Логотип">
-        </a>
-        <ul>
-          <li class="menu__list">
-            <a class="menu__link" href="#">
-              Головна
-            </a>
-          </li>
-          <li class="menu__list">
-            <a class="menu__link" href="#">
-              Страви
-            </a>
-          </li>
-          <li class="menu__list">
-            <a class="menu__link" href="#">
-              Контакти
-            </a>
-          </li>
-        </ul>
-        <ul class="user-nav">
-          <li class="user-nav__list">
-            <button class="user-nav__icon">
-              <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="9.76663" cy="9.63009" rx="8.98856" ry="8.88424" stroke="#363853" stroke-width="1.5"
-                  stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M16.0184 16.2708L19.5424 19.7448" stroke="#363853" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </button>
-          </li>
-          <li class="user-nav__list">
-            <button class="user-nav__icon">
-              <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M1 1.17578L3.08 1.5316L4.04301 12.8715C4.12001 13.7976 4.90301 14.5082 5.84301 14.5053H16.752C17.649 14.5072 18.41 13.8549 18.537 12.9772L19.486 6.49532C19.592 5.77083 19.083 5.09872 18.351 4.99395C18.287 4.98505 3.414 4.98011 3.414 4.98011"
-                  stroke="#363853" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M12.375 8.63337H15.1479" stroke="#363853" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round" />
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M5.4043 17.9316C5.70527 17.9316 5.94824 18.1729 5.94824 18.4696C5.94824 18.7673 5.70527 19.0085 5.4043 19.0085C5.10333 19.0085 4.86035 18.7673 4.86035 18.4696C4.86035 18.1729 5.10333 17.9316 5.4043 17.9316Z"
-                  stroke="#363853" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M16.6846 17.9316C16.9856 17.9316 17.2296 18.1729 17.2296 18.4696C17.2296 18.7673 16.9856 19.0085 16.6846 19.0085C16.3836 19.0085 16.1406 18.7673 16.1406 18.4696C16.1406 18.1729 16.3836 17.9316 16.6846 17.9316Z"
-                  stroke="#363853" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </button>
-          </li>
-        </ul>
-      </nav>
+      <div class="header__inner">
+        <nav class="menu">
+          <a class="menu__logo" href="#">
+            <img src="images/logo.svg" href="#" width="200" height="39" alt="Логотип">
+          </a>
+          <ul class="menu__list">
+            <li class="menu__item">
+              <a class="menu__link" href="#">
+                Головна
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link" href="#">
+                Страви
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link" href="#">
+                Контакти
+              </a>
+            </li>
+          </ul>
+          <ul class="user-nav">
+            <li class="user-nav__list">
+              <button class="user-nav__icon">
+                <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <ellipse cx="9.76663" cy="9.63009" rx="8.98856" ry="8.88424" stroke="#363853" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M16.0184 16.2708L19.5424 19.7448" stroke="#363853" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+                <span class="sr-only">пошук</span>
+              </button>
+            </li>
+            <li class="user-nav__list">
+              <button class="user-nav__icon">
+                <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M1 1.17578L3.08 1.5316L4.04301 12.8715C4.12001 13.7976 4.90301 14.5082 5.84301 14.5053H16.752C17.649 14.5072 18.41 13.8549 18.537 12.9772L19.486 6.49532C19.592 5.77083 19.083 5.09872 18.351 4.99395C18.287 4.98505 3.414 4.98011 3.414 4.98011"
+                    stroke="#363853" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M12.375 8.63337H15.1479" stroke="#363853" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M5.4043 17.9316C5.70527 17.9316 5.94824 18.1729 5.94824 18.4696C5.94824 18.7673 5.70527 19.0085 5.4043 19.0085C5.10333 19.0085 4.86035 18.7673 4.86035 18.4696C4.86035 18.1729 5.10333 17.9316 5.4043 17.9316Z"
+                    stroke="#363853" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M16.6846 17.9316C16.9856 17.9316 17.2296 18.1729 17.2296 18.4696C17.2296 18.7673 16.9856 19.0085 16.6846 19.0085C16.3836 19.0085 16.1406 18.7673 16.1406 18.4696C16.1406 18.1729 16.3836 17.9316 16.6846 17.9316Z"
+                    stroke="#363853" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span class="user-nav__num">4</span>
+                <span class="sr-only">корзина</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 
@@ -78,12 +83,13 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-top__item">
+
           <a class="footer-top__logo" href="#">
             <img src="images/logo.svg" alt="Логотип" width="200" height="39" href="#">
           </a>
+
           <form class="form" action="#">
             <label class="sr-only" for="email">напишіть емеїл</label>
-
             <input class="form-input" type="email" id="email" name="email" placeholder="Ваш email" required>
             <button class="form-btn" type="submit">
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -95,49 +101,50 @@
             </button>
           </form>
         </div>
-        <ul class="footer-top__list">
+        <ul class="list">
 
-          <li class="footer-top__link">
-            <a class="footer-top__text" href="#"> Як це працює </a>
+          <li class="list__link">
+            <a class="list__text" href="#"> Як це працює </a>
           </li>
-          <li class="footer-top__link">
-            <a class="footer-top__text" href="#"> Продукти </a>
+          <li class="list__link">
+            <a class="list__text" href="#"> Продукти </a>
           </li>
-          <li class="footer-top__link">
-            <a class="footer-top__text" href="#"> Страви </a>
+          <li class="list__link">
+            <a class="list__text" href="#"> Страви </a>
           </li>
-          <li class="footer-top__link">
-            <a class="footer-top__text" href="#"> Меню </a>
-          </li>
-
-
-          <li class="footer-top__link">
-            <a class="footer-top__text" href="#"> Про нас </a>
-          </li>
-          <li class="footer-top__link">
-            <a class="footer-top__text" href="#"> Новини </a>
-          </li>
-          <li class="footer-top__link">
-            <a class="footer-top__text" href="#"> Партнери </a>
-          </li>
-          <li class="footer-top__link">
-            <a class="footer-top__text" href="#"> ЧаПи </a>
+          <li class="list__link">
+            <a class="list__text" href="#"> Меню </a>
           </li>
 
 
-          <li class="footer-top__link">
-            <a class="footer-top__text" href="#"> Застосунок </a>
+          <li class="list__link">
+            <a class="list__text" href="#"> Про нас </a>
           </li>
-          <li class="footer-top__link">
-            <a class="footer-top__text" href="#"> Блог </a>
+          <li class="list__link">
+            <a class="list__text" href="#"> Новини </a>
           </li>
-          <li class="footer-top__link">
-            <a class="footer-top__text" href="#"> Що нового? </a>
+          <li class="list__link">
+            <a class="list__text" href="#"> Партнери </a>
           </li>
-          <li class="footer-top__link">
-            <a class="footer-top__text" href="#"> Мапа сайту </a>
+          <li class="list__link">
+            <a class="list__text" href="#"> ЧаПи </a>
+          </li>
+
+
+          <li class="list__link">
+            <a class="list__text" href="#"> Застосунок </a>
+          </li>
+          <li class="list__link">
+            <a class="list__text" href="#"> Блог </a>
+          </li>
+          <li class="list__link">
+            <a class="list__text" href="#"> Що нового? </a>
+          </li>
+          <li class="list__link">
+            <a class="list__text" href="#"> Мапа сайту </a>
           </li>
         </ul>
+
         <div class="footer-top__item">
           <ul class="links">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
