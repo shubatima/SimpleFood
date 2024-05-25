@@ -7,32 +7,54 @@
 
 .header {
   padding: 60px 0;
-
-  &__inner {
-    @extend.header
-  }
 }
 
 .menu {
+  display: flex;
+
+  &__logo {
+    margin-right: auto;
+
+    &:focus {
+      border-radius: 5px;
+      box-shadow: 0 0 0 2px rgba(255, 104, 56);
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:active {
+      opacity: 0.5;
+    }
+
+  }
 
   &__list {
     display: flex;
+    margin-right: 62px;
   }
 
-  &__list-item:not(:last-child) {
-    margin-right: 40px;
-  }
+  &__item:not(:last-child) {
+      margin-right: 40px;
+    }
 
-  &_list-link {
+  &__link {
     color: $default;
     font-size: 18px;
-    
+
+    &:focus {
+      border-radius: 5px;
+      box-shadow: 0 0 0 2px rgba(255, 104, 56);
+      opacity: 0.7;
+    }
+
     &:hover {
       color: $accent;
     }
 
     &--active {
-    color: $accent;
+      color: $accent;
     }
   }
 }
@@ -40,22 +62,45 @@
   .user-nav {
     display: flex;
 
-    &__link {
-      position: relative;
-    }
+    &__list {
+      gap: 10px;
 
-    &__ + .user-nav__link {
-      margin-left: 35px;
+      &:not(:last-child) {
+        margin-right: 35px;
+      }
     }
 
     &__num {
       background-color: $accent;
       position: absolute;
-      border-radius: 50%;
+      border-radius: 100%;
+      left: 13px;
+      bottom: 30px;
       font-size: 10px;
-      color: $secondbg;
+      color: $second-def;
     }
   }
+
+  .form {
+    width: 200px;
+    
+    &-input {
+      width: 100%;
+    }
+    
+    &-btn {
+      width: 100%;
+    }
+  }
+    
+
+.list {
+  display: grid;
+  
+  &__link {
+    margin-bottom: 20px;
+  }
+}
 
 .footer-top {
   display: flex;
@@ -70,7 +115,7 @@
   }
 
   &__form-input {
-    border: 1px solid $br-input;
+    border: 1px solid $dots;
     border-radius: 5px;
     padding-left: 13px;
     max-width: 100%;
@@ -96,37 +141,6 @@
   }
 }
 
-.form {
-  width: 200px;
-
-  &-input {
-    width: 100%;
-  }
-
-  &-btn {
-    width: 100%;
-  }
-}
-
-.list {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
-  
-  &__link {
-    margin-bottom: 20px;
-    width: 100%;
-
-    &:nth-child(4n+1) {
-      margin-right: 90px;
-    }
-    
-    &:nth-child(4n+2){
-      margin-right: 100px;
-    }
-  }
-}
-
 .footer-end {
   text-align: center;
   padding: 30px 0;
@@ -135,6 +149,6 @@
   font-size: 14px;
   line-height: 1;
   background-color: #363853;
-  }
+}
 
 @import 'media';
