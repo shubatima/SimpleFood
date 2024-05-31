@@ -8,7 +8,6 @@ const browserSync = require('browser-sync').create();
 const svgSprite = require('gulp-svg-sprite');
 const cheerio = require('gulp-cheerio');
 const replace = require('gulp-replace');
-const newer = require('gulp-newer');
 const cache = require('gulp-cache');
 
 // Асинхронный импорт del для очистки папки dist
@@ -57,7 +56,6 @@ function scripts() {
 // Задача для оптимизации изображений
 function images() {
   return src('app/images/**/*.*')
-    .pipe(newer('dist/images'))
     .pipe(cache(imagemin([
       imagemin.gifsicle({ interlaced: true }),
       imagemin.mozjpeg({ quality: 75, progressive: true }),
