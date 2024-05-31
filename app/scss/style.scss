@@ -29,6 +29,7 @@
     }
 
   &__link {
+    border-radius: 5px;
     color: $default;
     font-size: 18px;
     
@@ -51,6 +52,7 @@
   }
 
   &__icon {
+    border-radius: 5px;
     position: relative;
     width: 44px;
     height: 44px;
@@ -80,9 +82,13 @@
     color: $text;
     margin-bottom: 12px;
 
-    ::placeholder {
-      color: $dots;
+    &::placeholder {
+      color: $circle;
     }
+  }
+
+  &__icon {
+    margin-right: 20px;
   }
 
   &__btn {
@@ -92,6 +98,12 @@
     border-radius: 5px;
     color: $bg;
     background-color: $accent;
+  }
+
+  &__name {
+    text-align: center;
+    font-size: 14px;
+    @extend %rubik-500;
   }
 }
 
@@ -109,8 +121,9 @@
   .logo__img {
     margin-bottom: 20px;
   }
+}
 
-  .socialmedia {
+.socialmedia {
     display: flex;
 
      &-item:not(:last-child) {
@@ -123,9 +136,33 @@
       height: 39px;
       width: 39px;
     }
+
+    &-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100%;
+      height: 39px;
+      width: 39px;
+    }
+  }
+
+.links {
+  margin-bottom: 15px;
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  } 
+
+  &__icon {
+    margin-right: 7px;
   }
 }
-
 
 .footer-end {
   text-align: center;

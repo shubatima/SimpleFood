@@ -8,6 +8,8 @@ const browserSync = require('browser-sync').create();
 const svgSprite = require('gulp-svg-sprite');
 const cheerio = require('gulp-cheerio');
 const replace = require('gulp-replace');
+const newer = require('gulp-newer');
+const cache = require('gulp-cache');
 
 // Асинхронный импорт del для очистки папки dist
 async function loadDel() {
@@ -28,7 +30,7 @@ function browsersync() {
 // Задача для компиляции SCSS в CSS
 function styles() {
   return src('app/scss/style.scss')
-    .pipe(scss({ outputStyle: 'compressed' }).on('error', scss.logError)) // Обработка ошибок SCSS
+    .pipe(scss({ outputStyle: 'compressed' }).on('error', scss.logError))
     .pipe(concat('style.min.css'))
     .pipe(autoprefixer({
       overrideBrowserslist: ['last 10 versions'],
@@ -46,7 +48,7 @@ function scripts() {
   ])
     .pipe(concat('main.min.js'))
     .pipe(uglify().on('error', function(e){
-      console.log(e); // Обработка ошибок Uglify
+      console.log(e);
     }))
     .pipe(dest('app/js'))
     .pipe(browserSync.stream());
@@ -55,7 +57,8 @@ function scripts() {
 // Задача для оптимизации изображений
 function images() {
   return src('app/images/**/*.*')
-    .pipe(imagemin([
+    .pipe(newer('dist/images'))
+    .pipe(cache(imagemin([
       imagemin.gifsicle({ interlaced: true }),
       imagemin.mozjpeg({ quality: 75, progressive: true }),
       imagemin.optipng({ optimizationLevel: 5 }),
@@ -65,69 +68,30 @@ function images() {
           { cleanupIDs: false }
         ]
       })
-    ]))
+    ])))
     .pipe(dest('dist/images'));
 }
 
 function svgSprites() {
-  return src('app/images/icons/*.svg') // выбираем в папке с иконками все файлы с расширением svg
-    .pipe(
-      svgSprite({
-        mode: {
-          stack: {
-            sprite: '../sprite.svg', // указываем имя файла спрайта и путь
-          },
+  return src('app/images/icons/*.svg')
+    .pipe(cheerio({
+        run: ($) => {
+            $("[fill]").removeAttr("fill");
+            $("[stroke]").removeAttr("stroke");
+            $("[style]").removeAttr("style");
         },
+        parserOptions: { xmlMode: true },
       })
     )
-    .pipe(dest('app/images')); // указываем, в какую папку поместить готовый файл спрайта
-}
-
-function svgSprites() {
-  return src('app/images/icons/*.svg') 
-  .pipe(cheerio({
-        run: ($) => {
-            $("[fill]").removeAttr("fill"); // очищаем цвет у иконок по умолчанию, чтобы можно было задать свой
-            $("[stroke]").removeAttr("stroke"); // очищаем, если есть лишние атрибуты строк
-            $("[style]").removeAttr("style"); // убираем внутренние стили для иконок
+    .pipe(replace('&gt;', '>'))
+    .pipe(svgSprite({
+      mode: {
+        stack: {
+          sprite: '../sprite.svg',
         },
-        parserOptions: { xmlMode: true },
-      })
-  )
-	.pipe(
-	      svgSprite({
-	        mode: {
-	          stack: {
-	            sprite: '../sprite.svg', 
-	          },
-	        },
-	      })
-	    )
-	.pipe(dest('app/images')); 
-}
-
-function svgSprites() {
-  return src('app/images/icons/*.svg') 
-  .pipe(cheerio({
-        run: ($) => {
-            $("[fill]").removeAttr("fill"); 
-            $("[stroke]").removeAttr("stroke"); 
-            $("[style]").removeAttr("style"); 
-        },
-        parserOptions: { xmlMode: true },
-      })
-  )
-	.pipe(replace('&gt;','>')) // боремся с заменой символа 
-	.pipe(
-	      svgSprite({
-	        mode: {
-	          stack: {
-	            sprite: '../sprite.svg', 
-	          },
-	        },
-	      })
-	    )
-	.pipe(dest('app/images')); 
+      },
+    }))
+    .pipe(dest('app/images'));
 }
 
 // Задача для очистки папки dist
