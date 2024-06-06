@@ -5,6 +5,7 @@
 
 @import 'global';
 
+// header
 .header {
   padding: 60px 0;
 }
@@ -25,29 +26,29 @@
   }
 
   &__item:not(:last-child) {
-      margin-right: 40px;
-    }
+    margin-right: 40px;
+  }
 
   &__link {
     border-radius: 5px;
-    color: $default;
+    letter-spacing: 0.01em;
+    color: $text;
     font-size: 18px;
-    
+
     &--active {
       color: $accent;
     }
-
   }
 }
 
 .user-nav {
   display: flex;
-  
+
   &__list {
     gap: 10px;
 
-  &:not(:last-child) {
-    margin-right: 35px;
+    &:not(:last-child) {
+      margin-right: 35px;
     }
   }
 
@@ -59,15 +60,196 @@
   }
 
   &__num {
+    background-color: $accent;
+    position: absolute;
+    border-radius: 50%;
+    padding: 1px 4px;
+    top: 3px;
+    right: 3px;
+    font-size: 10px;
+    color: $second-def;
+  }
+}
+
+// --
+
+// hero
+.hero {
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__content {
+    align-self: center;
+    width: 476px;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  &__first {
+    @extend %rubik-500;
+    font-size: 66px;
+    text-transform: uppercase;
+    color: $title;
+  }
+
+  &__second {
+    color: $accent;
+  }
+
+  &__text {
+    max-width: 450px;
+    margin-bottom: 20px;
+    @extend %rubik-regular;
+    font-size: 20px;
+    line-height: 1.5;
+    color: $text;
+  }
+
+  &__click {
+    background-color: $accent;
+    border-radius: 6px;
+    padding: 12px 32px;
+    color: $second-def;
+    margin-right: 25px;
+  }
+
+  &__word {
+    @extend %rubik-regular;
+    font-size: 18px;
+    letter-spacing: 0.03em;
+  }
+
+  &__secondclick {
+    @extend %rubik-regular;
+    border-radius: 5px;
+    line-height: 1.5;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: $title;
+  }
+
+  &__img {
+    width: 560px;
+    height: 660px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+}
+
+// --
+// popular
+
+.popular {
+  text-align: center;
+}
+
+.category {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 45px;
+
+  &__item {
+    margin-right: 20px;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    background-color: $second-def;
+    border-radius: 5px;
+    padding: 22px 32px 22px;
+
+    &--active {
       background-color: $accent;
-      position: absolute;
-      border-radius: 50%;
-      padding: 1px 4px;
-      top: 3px;
-      right: 3px;
-      font-size: 10px;
       color: $second-def;
     }
+  }
+}
+
+.icon {
+  width: 44px;
+  height: 44px;
+  margin-right: 10px;
+}
+
+.product {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-bottom: 60px;
+
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $second-def;
+    border-radius: 5px;
+    max-width: 210px;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+
+    &__image {
+      width: 140px; 
+      height: auto;
+      margin-bottom: 15px; 
+    }
+
+    &__title {
+      @extend %rubik-regular;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    &__price {
+      @extend %rubik-500;
+      font-size: 20px;
+      margin: 10px 0;
+    }
+
+    &__button {
+      padding: 10px 20px;
+      background-color: $accent;
+      color: $second-def;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: auto;
+    }
+  }
+}
+
+.product-card:not(:nth-child(1)):not(:nth-child(6)) {
+    .product-card__price {
+      margin-top: 29px;
+    } 
+  }
+
+.popular__btn {
+  line-height: 1.5;
+  text-decoration-line: underline;
+}
+
+// --
+
+// footer
+.footer-top {
+  display: flex;
+  padding-bottom: 60px;
+
+  .logo__img {
+    margin-bottom: 20px;
+  }
 }
 
 .form {
@@ -114,39 +296,6 @@
   margin-right: 141px;
 }
 
-.footer-top {
-  display: flex;
-  padding-bottom: 60px;
-
-  .logo__img {
-    margin-bottom: 20px;
-  }
-}
-
-.socialmedia {
-    display: flex;
-
-     &-item:not(:last-child) {
-      margin-right: 36px;
-    }
-
-    &-item {
-      background-color: $circle;
-      border-radius: 100%;
-      height: 39px;
-      width: 39px;
-    }
-
-    &-link {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 100%;
-      height: 39px;
-      width: 39px;
-    }
-  }
-
 .links {
   margin-bottom: 15px;
 
@@ -157,10 +306,34 @@
     &:not(:last-child) {
       margin-bottom: 15px;
     }
-  } 
+  }
 
   &__icon {
     margin-right: 7px;
+  }
+}
+
+.socialmedia {
+  display: flex;
+
+  &-item:not(:last-child) {
+    margin-right: 36px;
+  }
+
+  &-item {
+    background-color: $circle;
+    border-radius: 100%;
+    height: 39px;
+    width: 39px;
+  }
+
+  &-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    height: 39px;
+    width: 39px;
   }
 }
 
@@ -174,4 +347,5 @@
   background-color: #363853;
 }
 
+// --
 @import 'media';

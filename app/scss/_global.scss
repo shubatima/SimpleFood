@@ -27,16 +27,24 @@ body {
   overflow: hidden;
 }
 
+section {
+  padding: 60px 0;
+
+  &.hero {
+    padding: 0;
+    padding-bottom: 60px;
+  }
+
+}
+
 .title {
+  text-align: center;
+  margin-bottom: 60px;
   font-weight: 500;
   font-size: 36px;
   line-height: 1.3;
 }
-
-.section {
-  padding: 60px 0;
-}
-
+// header Focus-Hover-Active
 .menu__logo {
   transition: box-shadow 0.3s, opacity 0.3s;
 
@@ -109,7 +117,59 @@ body {
     }
   }
 }
+// ---
 
+// hero Focus-Hover-Active
+.hero__click {
+    transition: box-shadow 0.3s, background-color 0.3s;
+    &:focus {
+      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
+      background-color: rgba(255, 104, 56, 0.1);
+
+      .hero__word {
+        color: $accent;
+      }
+    }
+
+    &:hover {
+      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7), 0 5px 12px 0 rgba(255, 104, 56, 0.2);
+      background-color: rgba(255, 255, 255, 0.1);
+
+      .hero__word {
+        color: $accent;
+      }
+    }
+
+    &:active {
+      background-color: rgba(255, 104, 56, 0.1);
+
+      .hero__word {
+        color: $accent;
+      }
+    }
+    
+}
+
+.hero__secondclick {
+  transition: box-shadow 0.3s, background-color 0.3s, text-shadow 0.3s;
+  &:focus {
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
+    background-color: rgba(255, 255, 255, 0.01);
+  }
+
+  &:hover {
+    color: $accent;
+  }
+
+  &:active {
+    text-shadow: 2px 2px 5px 0 rgba(54, 56, 83, 0.5);
+  }
+}
+// ---
+
+// footer Focus-Hover-Active
 .form__btn {
   transition: box-shadow 0.3s, background-color 0.3s;
   

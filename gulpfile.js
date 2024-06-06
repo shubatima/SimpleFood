@@ -10,13 +10,11 @@ const cheerio = require('gulp-cheerio');
 const replace = require('gulp-replace');
 const cache = require('gulp-cache');
 
-// Асинхронный импорт del для очистки папки dist
 async function loadDel() {
   const delModule = await import('del');
   return delModule.default;
 }
 
-// Задача для запуска браузера с синхронизацией
 function browsersync() {
   browserSync.init({
     server: {
@@ -26,7 +24,6 @@ function browsersync() {
   });
 }
 
-// Задача для компиляции SCSS в CSS
 function styles() {
   return src('app/scss/style.scss')
     .pipe(scss({ outputStyle: 'compressed' }).on('error', scss.logError))
@@ -39,7 +36,6 @@ function styles() {
     .pipe(browserSync.stream());
 }
 
-// Задача для объединения и минификации JS файлов
 function scripts() {
   return src([
     'node_modules/jquery/dist/jquery.js',
@@ -53,7 +49,6 @@ function scripts() {
     .pipe(browserSync.stream());
 }
 
-// Задача для оптимизации изображений
 function images() {
   return src('app/images/**/*.*')
     .pipe(cache(imagemin([
@@ -92,13 +87,11 @@ function svgSprites() {
     .pipe(dest('app/images'));
 }
 
-// Задача для очистки папки dist
 async function cleanDist() {
   const del = await loadDel();
   return del('dist');
 }
 
-// Задача для копирования файлов в папку dist
 function build() {
   return src([
     'app/**/*.html',
@@ -108,7 +101,6 @@ function build() {
     .pipe(dest('dist'));
 }
 
-// Задача для слежения за изменениями файлов
 function watching() {
   watch(['app/scss/**/*.scss'], styles);
   watch(['app/images/icons/*.svg'], svgSprites);
@@ -116,7 +108,6 @@ function watching() {
   watch(['app/**/*.html']).on('change', browserSync.reload);
 }
 
-// Экспорт задач для использования в Gulp
 exports.styles = styles;
 exports.scripts = scripts;
 exports.browsersync = browsersync;
@@ -126,5 +117,4 @@ exports.svgSprites = svgSprites;
 exports.cleanDist = cleanDist;
 exports.build = series(cleanDist, images, build);
 
-// Задача по умолчанию
 exports.default = parallel(styles, scripts, browsersync, watching);
