@@ -1,19 +1,16 @@
 const { src, dest, watch, parallel, series } = require('gulp');
+
 const scss = require('gulp-sass')(require('sass'));
 const concat = require('gulp-concat');
 const autoprefixer = require('gulp-autoprefixer');
 const uglify = require('gulp-uglify');
 const imagemin = require('gulp-imagemin');
+const del = require('del');
 const browserSync = require('browser-sync').create();
 const svgSprite = require('gulp-svg-sprite');
 const cheerio = require('gulp-cheerio');
 const replace = require('gulp-replace');
 const cache = require('gulp-cache');
-
-async function loadDel() {
-  const delModule = await import('del');
-  return delModule.default;
-}
 
 function browsersync() {
   browserSync.init({
@@ -39,6 +36,7 @@ function styles() {
 function scripts() {
   return src([
     'node_modules/jquery/dist/jquery.js',
+    'node_modules/mixitup/demos/mixitup.min.js',
     'app/js/main.js'
   ])
     .pipe(concat('main.min.js'))
@@ -87,11 +85,6 @@ function svgSprites() {
     .pipe(dest('app/images'));
 }
 
-async function cleanDist() {
-  const del = await loadDel();
-  return del('dist');
-}
-
 function build() {
   return src([
     'app/**/*.html',
@@ -99,6 +92,10 @@ function build() {
     'app/js/main.min.js'
   ], { base: 'app' })
     .pipe(dest('dist'));
+}
+
+function cleanDist() {
+  return del('dist')
 }
 
 function watching() {
@@ -117,4 +114,4 @@ exports.svgSprites = svgSprites;
 exports.cleanDist = cleanDist;
 exports.build = series(cleanDist, images, build);
 
-exports.default = parallel(styles, scripts, browsersync, watching);
+exports.default = parallel(svgSprites, styles, scripts, browsersync, watching);
