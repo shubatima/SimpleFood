@@ -587,33 +587,31 @@
     border-radius: 100%;
     border: 3px solid $dots;
 
-    &:focus {
-      border: none;
-      background-color: $style-btn; 
-    }
-    
     &:hover {
-      
-      border: 3px solid rgba(255, 104, 56, 0.5);
+      border:3px solid rgba(255, 104, 56, 0.7);
       background: rgba(255, 242, 237, 1);
-      transition: 0.5s;
+      transition: all 0.5s;
 
       .feedback__arrow {
-        fill: rgba(255, 104, 56, 0.5);
-        transition: 0.5s;
-         }
+        fill: rgba(255, 104, 56, 0.7);
       }
+    }
 
-      &:active {
-        
-        border: 3px solid $style-btn;
-        transition: 0.5s;
+    &:focus {
+      box-shadow: 0px 0px 0px 2px rgba(255, 104, 56, 0.7);
+      transition: all 0.5s;
+    }
 
-        .feedback__arrow {
-          fill: $accent;
-          transition: 0.5s;
-        }
+    &:active {
+      border: 3px solid rgba(255, 242, 237, 1);
+      background: rgba(255, 242, 237, 1);
+      box-shadow: none;
+      transition: all 0.5s;
+
+      .feedback__arrow {
+        fill: $accent;
       }
+    }
 
     &--prev {
       left: -60px;
@@ -657,8 +655,27 @@
 
     &.slick-active {
       background-color: $accent;
+
+      &:hover {
+      box-shadow: 0px 0px 0px 2px rgba(255, 104, 56, 0.5);
+      background: rgba(255, 242, 237, 1);
+      transition: all 0.5s;
+      }
+
+      &:focus {
+        box-shadow: 0px 0px 0px 2px rgba(255, 104, 56, 1);
+        transition: all 0.5s;
+      }
+
+
+      &:active {
+        background: rgba(255, 104, 56, 0.5);
+        transition: all 0.5s;
+      }
     }
   }
+
+  
 }
 
 .arrows-wrap {
